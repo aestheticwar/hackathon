@@ -1,15 +1,20 @@
 {
   "expo": {
-    "name": "hackathon",
-    "slug": "hackathon",
+    "name": "hakaton",
+    "slug": "hakaton",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "hackathon",
+    "scheme": "hakaton",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -18,8 +23,7 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "edgeToEdgeEnabled": true
     },
     "web": {
       "output": "static",
@@ -27,6 +31,13 @@
     },
     "plugins": [
       "expo-router",
+      [ "expo-image-picker", {
+        "photosPermission": "custom photos permission",
+        "cameraPermission": "Allow $(PRODUCT_NAME) to open the camera",
+
+        "//": "Disables the microphone permission",
+        "microphonePermission": false
+      }],
       [
         "expo-splash-screen",
         {
